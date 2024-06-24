@@ -13,7 +13,6 @@ import HomePage from "./Pages/HomePage";
 import MainLayout from "./Layouts/MainLayout";
 import RoomsPages from "./Pages/RoomsPage";
 import NotFoundPage from "./Pages/NotFoundPage";
-import { useRef } from "react";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,18 +27,9 @@ const router = createBrowserRouter(
 );
 
 const App = () => {
-  const facilitiesRef = useRef(null);
-  const faqRef = useRef(null);
-
   return (
     <>
       <RouterProvider router={router} />
-      {/* <div id="facilities" ref={facilitiesRef}>
-        <Facilities />
-      </div>
-      <div id="faq" ref={faqRef}>
-        <FAQ />
-      </div> */}
     </>
   );
 };

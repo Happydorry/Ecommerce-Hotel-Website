@@ -29,9 +29,9 @@ const Navbar = ({ scrollToRooms }) => {
                   Rooms
                 </RouterLink>
                 <ScrollLink
-                  to="facilities"
+                  to="Facilities"
                   smooth={true}
-                  offset={500}
+                  offset={-200}
                   duration={500}
                   className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
                 >
@@ -40,7 +40,7 @@ const Navbar = ({ scrollToRooms }) => {
                 <ScrollLink
                   to="faq"
                   smooth={true}
-                  offset={500}
+                  offset={-200}
                   duration={500}
                   className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
                 >

@@ -7,14 +7,23 @@ import Facilities from "../Component/Facilities";
 import AdditionalInfo from "../Component/AdditionalInfo";
 import FrequentlyAskedQuestions from "../Component/FrequentlyAskedQuestions";
 
+import { useRef } from "react";
+
 const HomePage = () => {
+  const facilitiesRef = useRef(null);
+  const faqRef = useRef(null);
+
   return (
     <>
       <Hero />
       <Rooms />
-      <Facilities />
+      <div id="Facilities" ref={facilitiesRef}>
+        <Facilities />
+      </div>
       <AdditionalInfo />
-      <FrequentlyAskedQuestions />
+      <div id="faq" ref={faqRef}>
+        <FrequentlyAskedQuestions />
+      </div>
     </>
   );
 };
