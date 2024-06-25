@@ -44,7 +44,7 @@ const AdditionalInfo = () => {
             showers feature designer toiletries and hair dryers. Conveniences
             include phones, as well as safes and desks.
           </p>
-          <h2 className="font-extrabold text-2xl mt-9 bg-gray-100">
+          <h2 className="font-extrabold text-2xl mt-9 bg-gray-100" id="spa">
             Spa Service Guidelines and Rules
           </h2>
           <p className="mt-2">
@@ -87,7 +87,7 @@ const AdditionalInfo = () => {
             </li>
           </ol>
 
-          <h2 className="font-extrabold text-2xl mt-9 bg-gray-100">
+          <h2 className="font-extrabold text-2xl mt-9 bg-gray-100" id="pool">
             Swimming Pool Guidelines and Rules
           </h2>
           <ul className=" list-inside space-y-2 mt-5">
@@ -133,7 +133,7 @@ const AdditionalInfo = () => {
               medical conditions that might affect your safety.
             </li>
           </ul>
-          <h2 className="font-extrabold text-2xl mt-9 bg-gray-100">
+          <h2 className="font-extrabold text-2xl mt-9 bg-gray-100" id="bar">
             Bar and Lounge Guidelines and Rules
           </h2>
           <ul className="list-disc list-inside space-y-2 mt-5 mb-7">

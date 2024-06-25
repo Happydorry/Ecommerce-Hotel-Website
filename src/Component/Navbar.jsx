@@ -24,7 +24,7 @@ const Navbar = ({ scrollToRooms }) => {
                 </RouterLink>
                 <RouterLink
                   to="/roomspage"
-                  className="text-white bg-black hover:bg-gray hover:text-white rounded-md px-3 py-2"
+                  className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
                 >
                   Rooms
                 </RouterLink>

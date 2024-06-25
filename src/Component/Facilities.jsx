@@ -3,6 +3,7 @@ import React from "react";
 import spa from "../assets/Images/spa.png";
 import pool from "../assets/Images/pool.png";
 import Lounges from "../assets/Images/Lounges.png";
+import { Link as ScrollLink } from "react-scroll";
 
 const Facilities = () => {
   return (
@@ -37,12 +38,15 @@ const Facilities = () => {
                 </div>
 
                 <div className="  mb-4 ml-60">
-                  <a
-                    href=""
+                  <ScrollLink
+                    to="spa"
+                    smooth={true}
+                    offset={-100}
+                    duration={500}
                     className="bg-orange-200 hover:bg-orange-400 text-orange-800 px-2 py-2 rounded-lg text-center text-lg"
                   >
                     Read More
-                  </a>
+                  </ScrollLink>
                 </div>
               </div>
             </div>
@@ -62,12 +66,15 @@ const Facilities = () => {
                 </div>
 
                 <div className="  mb-4 ml-60">
-                  <a
-                    href=""
+                  <ScrollLink
+                    to="pool"
+                    smooth={true}
+                    offset={-100}
+                    duration={500}
                     className="bg-orange-200 hover:bg-orange-400 text-orange-800 px-2 py-2 rounded-lg text-center text-lg"
                   >
                     Read More
-                  </a>
+                  </ScrollLink>
                 </div>
               </div>
             </div>
@@ -88,12 +95,15 @@ const Facilities = () => {
                 </div>
 
                 <div className="  mb-4 ml-60">
-                  <a
-                    href=""
+                  <ScrollLink
+                    to="bar"
+                    smooth={true}
+                    offset={-100}
+                    duration={500}
                     className="bg-orange-200 hover:bg-orange-400 text-orange-800 px-2 py-2 rounded-lg text-center text-lg"
                   >
                     Read More
-                  </a>
+                  </ScrollLink>
                 </div>
               </div>
             </div>
