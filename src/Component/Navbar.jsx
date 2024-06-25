@@ -2,7 +2,8 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import logo from "../assets/Images/logo.png";
-import { Link as RouterLink } from "react-router-dom";
+// import { Link as RouterLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 
 const Navbar = ({ scrollToRooms }) => {
@@ -16,18 +17,26 @@ const Navbar = ({ scrollToRooms }) => {
             </a>
             <div className="md:ml-auto">
               <div className="flex space-x-2">
-                <RouterLink
+                <NavLink
                   to="/"
-                  className="text-white bg-black hover:bg-gray hover:text-white rounded-md px-3 py-2"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-white bg-black hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                      : "text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                  }
                 >
                   Home
-                </RouterLink>
-                <RouterLink
+                </NavLink>
+                <NavLink
                   to="/roomspage"
-                  className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-white bg-black hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                      : "text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                  }
                 >
                   Rooms
-                </RouterLink>
+                </NavLink>
                 <ScrollLink
                   to="Facilities"
                   smooth={true}
