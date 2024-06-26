@@ -13,6 +13,7 @@ import HomePage from "./Pages/HomePage";
 import MainLayout from "./Layouts/MainLayout";
 import RoomsPages from "./Pages/RoomsPage";
 import NotFoundPage from "./Pages/NotFoundPage";
+import FormPage from "./Pages/FormPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
       <Route path="/" element={<MainLayout />}>
         <Route index element={<HomePage />} />
         <Route path="/roomspage" element={<RoomsPages />} />/
+        <Route path="/FormPage" element={<FormPage />} />/
         <Route path="*" element={<NotFoundPage />} />/
       </Route>
     </>

@@ -18,7 +18,7 @@ const AccordionItem = ({ title, content, isOpen, onClick }) => (
         isOpen ? "max-h-50" : "max-h-0"
       }`}
     >
-      <div className="py-4 text-gray-700">{content}</div>
+      <div className="py-4 text-gray-700 ms-5">{content}</div>
     </div>
   </div>
 );

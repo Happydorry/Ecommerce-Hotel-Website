@@ -9,6 +9,7 @@ import bath3 from "../assets/Images/bath3.png";
 import Card from "./Card";
 import { FaTags, FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const RoomListing = () => {
   const images = [queen, bath1]; // Add all images here
@@ -18,6 +19,11 @@ const RoomListing = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentIndex1, setCurrentIndex1] = useState(0);
   const [currentIndex2, setCurrentIndex2] = useState(0);
+
+  const navigate = useNavigate();
+  const handleExploreClick = () => {
+    navigate("/FormPage");
+  };
 
   const nextImage = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -107,7 +113,10 @@ const RoomListing = () => {
 
               <div className="flex items-center justify-between">
                 <p className="mt-1">Partially refundable</p>
-                <button className="bg-red-500 hover:bg-red-300 mr-10 btn-lg text-white font-bold py-4 px-10 rounded">
+                <button
+                  onClick={handleExploreClick}
+                  className="bg-red-500 hover:bg-red-300 mr-10 btn-lg text-white font-bold py-4 px-10 rounded"
+                >
                   Reserve
                 </button>
               </div>
@@ -169,7 +178,10 @@ const RoomListing = () => {
 
               <div className="flex items-center justify-between">
                 <p className="mt-1">Partially refundable</p>
-                <button className="bg-red-500 hover:bg-red-300 mr-10 btn-lg text-white font-bold py-4 px-10 rounded">
+                <button
+                  onClick={handleExploreClick}
+                  className="bg-red-500 hover:bg-red-300 mr-10 btn-lg text-white font-bold py-4 px-10 rounded"
+                >
                   Reserve
                 </button>
               </div>
@@ -231,7 +243,10 @@ const RoomListing = () => {
 
               <div className="flex items-center justify-between">
                 <p className="mt-1">Partially refundable</p>
-                <button className="bg-red-500 hover:bg-red-300 mr-10 btn-lg text-white font-bold py-4 px-10 rounded">
+                <button
+                  onClick={handleExploreClick}
+                  className="bg-red-500 hover:bg-red-300 mr-10 btn-lg text-white font-bold py-4 px-10 rounded"
+                >
                   Reserve
                 </button>
               </div>
