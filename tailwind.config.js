@@ -13,6 +13,7 @@ export default {
         beige: {
           500: "#F5F5DC", // Beige color
         },
+        pink: "#FBCFE8",
       },
       fontFamily: {
         sans: ["Roboto", "sans-serif"],
