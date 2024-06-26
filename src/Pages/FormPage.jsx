@@ -7,12 +7,12 @@ import "react-toastify/dist/ReactToastify.css";
 const FormPage = () => {
   const formik = useFormik({
     initialValues: {
-      FullName: "",
+      fullname: "",
       email: "",
       password: "",
     },
     onSubmit: () => {
-      toast.success("Successfully submitted!", {
+      toast.success("Successfully Reserved!", {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -35,7 +35,7 @@ const FormPage = () => {
           </label>
           <input
             className="border border-black p-2"
-            value={formik.values.FullName}
+            value={formik.values.fullname}
             onChange={formik.handleChange}
             id="fullname"
             type="text"
