@@ -12,9 +12,9 @@ const Navbar = ({ scrollToRooms }) => {
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
-            <a className="flex flex-shrink-0 items-center mr-4" href="">
+            <NavLink className="flex flex-shrink-0 items-center mr-4" to="/">
               <img className="h-10 w-auto" src={logo} alt="Logo" />
-            </a>
+            </NavLink>
             <div className="md:ml-auto">
               <div className="flex space-x-2">
                 <NavLink
@@ -42,7 +42,7 @@ const Navbar = ({ scrollToRooms }) => {
                   smooth={true}
                   offset={-200}
                   duration={500}
-                  className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                  className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 cursor-pointer"
                 >
                   Facilities
                 </ScrollLink>
@@ -51,7 +51,7 @@ const Navbar = ({ scrollToRooms }) => {
                   smooth={true}
                   offset={-200}
                   duration={500}
-                  className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                  className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 cursor-pointer"
                 >
                   FAQ
                 </ScrollLink>

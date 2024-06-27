@@ -43,7 +43,7 @@ const Facilities = () => {
                     smooth={true}
                     offset={-100}
                     duration={500}
-                    className="bg-orange-200 hover:bg-orange-400 text-orange-800 px-2 py-2 rounded-lg text-center text-lg"
+                    className="bg-orange-200 hover:bg-orange-400 text-orange-800 px-2 py-2 rounded-lg text-center text-lg cursor-pointer"
                   >
                     Read More
                   </ScrollLink>
@@ -71,7 +71,7 @@ const Facilities = () => {
                     smooth={true}
                     offset={-100}
                     duration={500}
-                    className="bg-orange-200 hover:bg-orange-400 text-orange-800 px-2 py-2 rounded-lg text-center text-lg"
+                    className="bg-orange-200 hover:bg-orange-400 text-orange-800 px-2 py-2 rounded-lg text-center text-lg cursor-pointer"
                   >
                     Read More
                   </ScrollLink>
@@ -100,7 +100,7 @@ const Facilities = () => {
                     smooth={true}
                     offset={-100}
                     duration={500}
-                    className="bg-orange-200 hover:bg-orange-400 text-orange-800 px-2 py-2 rounded-lg text-center text-lg"
+                    className="bg-orange-200 hover:bg-orange-400 text-orange-800 px-2 py-2 rounded-lg text-center text-lg cursor-pointer"
                   >
                     Read More
                   </ScrollLink>
