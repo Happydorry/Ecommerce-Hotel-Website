@@ -12,6 +12,7 @@ import {
 import HomePage from "./Pages/HomePage";
 import MainLayout from "./Layouts/MainLayout";
 import RoomsPages from "./Pages/RoomsPage";
+import SecondLayout from "./Layouts/SecondLayout";
 import NotFoundPage from "./Pages/NotFoundPage";
 import FormPage from "./Pages/FormPage";
 
@@ -20,9 +21,11 @@ const router = createBrowserRouter(
     <>
       <Route path="/" element={<MainLayout />}>
         <Route index element={<HomePage />} />
-        <Route path="/roomspage" element={<RoomsPages />} />/
         <Route path="/FormPage" element={<FormPage />} />/
         <Route path="*" element={<NotFoundPage />} />/
+      </Route>
+      <Route path="/roomspage" element={<SecondLayout />}>
+        <Route path="/roomspage" element={<RoomsPages />} />/
       </Route>
     </>
   )
