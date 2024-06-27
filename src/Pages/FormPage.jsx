@@ -1,8 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { useFormik } from "formik";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useEffect } from "react";
 
 const FormPage = () => {
   const formik = useFormik({
@@ -20,8 +22,13 @@ const FormPage = () => {
         pauseOnHover: true,
         draggable: true,
       });
+      formik.resetForm();
     },
   });
+
+  useEffect(() => {
+    formik.resetForm();
+  }, []);
 
   return (
     <div className="border bg-gray-500 border-black w-full md:w-1/2 lg:w-1/3 mx-auto p-8 py-10 mt-40">
