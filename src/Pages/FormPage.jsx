@@ -22,13 +22,16 @@ const FormPage = () => {
         pauseOnHover: true,
         draggable: true,
       });
-      formik.resetForm();
+      // formik.resetForm();
     },
   });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
 
-  useEffect(() => {
-    formik.resetForm();
-  }, []);
+  // useEffect(() => {
+  //   formik.resetForm();
+  // }, []);
 
   return (
     <div className="border bg-gray-500 border-black w-full md:w-1/2 lg:w-1/3 mx-auto p-8 py-10 mt-40">
