@@ -1,10 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { useFormik } from "formik";
+import { useFormik, validateYupSchema } from "formik";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
+import validationForm from "../Component/validationForm";
+import * as Yup from "yup";
 
 const FormPage = () => {
   const formik = useFormik({
@@ -13,6 +15,7 @@ const FormPage = () => {
       email: "",
       password: "",
     },
+    validationSchema: validationForm,
     onSubmit: () => {
       toast.success("Successfully Reserved!", {
         position: "top-right",
@@ -22,16 +25,13 @@ const FormPage = () => {
         pauseOnHover: true,
         draggable: true,
       });
-      // formik.resetForm();
+      formik.resetForm();
     },
   });
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
 
-  // useEffect(() => {
-  //   formik.resetForm();
-  // }, []);
+  useEffect(() => {
+    formik.resetForm();
+  }, []);
 
   return (
     <div className="border bg-gray-500 border-black w-full md:w-1/2 lg:w-1/3 mx-auto p-8 py-10 mt-40">
@@ -51,6 +51,9 @@ const FormPage = () => {
             type="text"
             placeholder="Full Name"
           />
+          {formik.touched.fullname && formik.errors.fullname ? (
+            <div className="text-red-500">{formik.errors.fullname}</div>
+          ) : null}
           <label className="mt-10 mb-2" htmlFor="email">
             Email
           </label>
@@ -62,6 +65,9 @@ const FormPage = () => {
             type="email"
             placeholder="Email Address"
           />
+          {formik.touched.email && formik.errors.email ? (
+            <div className="text-red-500">{formik.errors.email}</div>
+          ) : null}
           <label className=" mt-10 mb-2" htmlFor="password">
             Password
           </label>
@@ -75,6 +81,9 @@ const FormPage = () => {
             type="password"
             placeholder="Enter Password"
           />
+          {formik.touched.password && formik.errors.password ? (
+            <div className="text-red-500">{formik.errors.password}</div>
+          ) : null}
         </div>
         <button
           type="submit"
