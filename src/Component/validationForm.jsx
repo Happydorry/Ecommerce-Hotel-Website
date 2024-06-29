@@ -5,7 +5,7 @@ import * as Yup from "yup";
 const validationForm = Yup.object({
   fullname: Yup.string()
     .required("Full Name is required")
-    .min(2, "Full Name must be at least 2 characters"),
+    .min(6, "Full Name must be at least 6 characters"),
   email: Yup.string()
     .email("Invalid email address")
     .required("Email is required"),

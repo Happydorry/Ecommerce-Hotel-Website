@@ -1,14 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
-import React from "react";
-import { useFormik, validateYupSchema } from "formik";
+import React, { useState, useEffect } from "react";
+import { useFormik } from "formik";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useEffect } from "react";
 import validationForm from "../Component/validationForm";
-import * as Yup from "yup";
+import Spinner from "../Component/Spinner";
 
 const FormPage = () => {
+  const [loading, setLoading] = useState(false);
+
   const formik = useFormik({
     initialValues: {
       fullname: "",
@@ -16,16 +17,21 @@ const FormPage = () => {
       password: "",
     },
     validationSchema: validationForm,
-    onSubmit: () => {
-      toast.success("Successfully Reserved!", {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
-      formik.resetForm();
+    onSubmit: (values) => {
+      setLoading(true);
+
+      setTimeout(() => {
+        setLoading(false);
+        toast.success("Successfully Reserved!", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+        formik.resetForm();
+      }, 2000); // Adjust the delay as needed
     },
   });
 
@@ -88,10 +94,16 @@ const FormPage = () => {
         <button
           type="submit"
           className="mt-10 ml-40 bg-black hover:bg-blue-700 text-white font-bold py-4 px-6 rounded"
+          disabled={loading} // Disable the button while loading
         >
           Submit
         </button>
       </form>
+      {loading && (
+        <div className="spinner-container">
+          <Spinner />
+        </div>
+      )}
       <ToastContainer />
     </div>
   );
