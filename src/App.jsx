@@ -21,11 +21,11 @@ const router = createBrowserRouter(
     <>
       <Route path="/" element={<MainLayout />}>
         <Route index element={<HomePage />} />
-        <Route path="/FormPage" element={<FormPage />} />/
         <Route path="*" element={<NotFoundPage />} />/
       </Route>
-      <Route path="/roomspage" element={<SecondLayout />}>
+      <Route path="/" element={<SecondLayout />}>
         <Route path="/roomspage" element={<RoomsPages />} />/
+        <Route path="/FormPage" element={<FormPage />} />/
       </Route>
     </>
   )
