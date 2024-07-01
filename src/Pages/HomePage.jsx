@@ -6,6 +6,7 @@ import Rooms from "../Component/Rooms";
 import Facilities from "../Component/Facilities";
 import AdditionalInfo from "../Component/AdditionalInfo";
 import FrequentlyAskedQuestions from "../Component/FrequentlyAskedQuestions";
+import Location from "../Component/Location";
 
 import { useRef } from "react";
 
@@ -21,6 +22,7 @@ const HomePage = () => {
         <Facilities />
       </div>
       <AdditionalInfo />
+      <Location />
       <div id="faq" ref={faqRef}>
         <FrequentlyAskedQuestions />
       </div>
