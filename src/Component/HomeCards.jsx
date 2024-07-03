@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import Card from "./Card";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
 const HomeCards = () => {
   return (
@@ -8,10 +9,10 @@ const HomeCards = () => {
       <div className="container-xl lg:container m-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 rounded-lg">
           <Card>
-            <p className="mt-2 mb-4">
-              Location: 123 Coastal Highway, Seaside Town, CA 90210
-            </p>
-            <p>
+            <p className="overflow-y-auto max-h-60">
+              <p className=" font-bold mt-2 mb-4">
+                Location: 123 Coastal Highway, Seaside Town, CA 90210
+              </p>
               <ul className=" list-inside space-y-2 mt-5">
                 <li>
                   {" "}
@@ -30,19 +31,22 @@ const HomeCards = () => {
                 <li> Seaside International Airport (SIA): 24.1 km / 15 mi </li>
                 <li> City Airport (CTA): 32.2 km / 20 mi</li>
               </ul>
-              <a
-                href=""
-                className="inline-block bg-black text-white rounded-lg px-4 py-2 hover:bg-gray-500 mt-5"
-              >
-                Open Map
-              </a>
             </p>
+            <a
+              href=""
+              className="inline-block bg-black text-white rounded-lg px-4 py-2 hover:bg-gray-500 mt-5"
+            >
+              Open Map
+            </a>
           </Card>
-          <Card bg="bg-pink-100">
-            <h2 className="text-2xl font-bold">For Employers</h2>
-            <p className="mt-2 mb-4">
-              List your job to find the perfect developer for the role
-            </p>
+          <Card>
+            <div className="map-container w-full h-60 bg-gray-300">
+              <img
+                src="https://via.placeholder.com/300x200?text=Map+Placeholder"
+                alt="Map Placeholder"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </Card>
         </div>
       </div>
