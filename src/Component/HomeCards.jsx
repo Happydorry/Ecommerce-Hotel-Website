@@ -30,6 +30,12 @@ const HomeCards = () => {
                 <li> Seaside International Airport (SIA): 24.1 km / 15 mi </li>
                 <li> City Airport (CTA): 32.2 km / 20 mi</li>
               </ul>
+              <a
+                href=""
+                className="inline-block bg-black text-white rounded-lg px-4 py-2 hover:bg-gray-500 mt-5"
+              >
+                Open Map
+              </a>
             </p>
           </Card>
           <Card bg="bg-pink-100">
@@ -37,12 +43,6 @@ const HomeCards = () => {
             <p className="mt-2 mb-4">
               List your job to find the perfect developer for the role
             </p>
-            <a
-              href=""
-              className="inline-block bg-indigo-500 text-white rounded-lg px-4 py-2 hover:bg-indigo-600"
-            >
-              Add Job
-            </a>
           </Card>
         </div>
       </div>
