@@ -5,7 +5,7 @@ import { FaPhone, FaStar } from "react-icons/fa";
 
 const Hero = ({
   title = "MARRIOTT HOTEL",
-  subtitle = "Suqeim, Dubai, United Arab Emirates",
+  subtitle = "Chipping Norton, Oxfordshire, England ",
   rightText = ": +1 237-345-5992",
 }) => {
   return (
