@@ -66,7 +66,7 @@ const RoomListing = () => {
             <div className="relative h-96">
               <Card>
                 <img
-                  className="object-cover w-full h-full"
+                  className="object-cover w-full h-96"
                   src={images[currentIndex]}
                   alt={`room-${currentIndex + 1}`}
                 />
@@ -131,7 +131,7 @@ const RoomListing = () => {
             <div className="relative h-96">
               <Card>
                 <img
-                  className="object-cover w-full h-full"
+                  className="object-cover w-full h-96"
                   src={images1[currentIndex1]}
                   alt={`room-${currentIndex1 + 1}`}
                 />
@@ -196,7 +196,7 @@ const RoomListing = () => {
             <div className="relative h-96">
               <Card>
                 <img
-                  className="object-cover w-full h-full"
+                  className="object-cover w-full h-96"
                   src={images2[currentIndex2]}
                   alt={`room-${currentIndex2 + 1}`}
                 />

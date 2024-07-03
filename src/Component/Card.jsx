@@ -4,7 +4,7 @@ import React from "react";
 
 const Card = ({ children }) => {
   return (
-    <div className="relative overflow-hidden rounded-lg bg-gray-200 h-full  ">
+    <div className="relative overflow-hidden rounded-lg bg-gray-200 h-full ">
       <div>{children}</div>
     </div>
   );
