@@ -10,6 +10,7 @@ export default {
           400: "#FB923C",
           800: "#9A3412",
         },
+        blue: "#dbeafe",
         beige: {
           500: "#F5F5DC", // Beige color
         },
