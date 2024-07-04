@@ -13,6 +13,7 @@ import { useRef } from "react";
 const HomePage = () => {
   const facilitiesRef = useRef(null);
   const faqRef = useRef(null);
+  const locationRef = useRef(null);
 
   return (
     <>
@@ -22,7 +23,9 @@ const HomePage = () => {
         <Facilities />
       </div>
       <AdditionalInfo />
-      <Location />
+      <div id="location" ref={locationRef}>
+        <Location />
+      </div>
       <div id="faq" ref={faqRef}>
         <FrequentlyAskedQuestions />
       </div>

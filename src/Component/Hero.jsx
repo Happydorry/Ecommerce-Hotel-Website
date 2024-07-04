@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { FaPhone, FaStar } from "react-icons/fa";
+import { Link as ScrollLink } from "react-scroll";
 
 const Hero = ({
   title = "MARRIOTT HOTEL",
@@ -12,7 +13,15 @@ const Hero = ({
     <section className="bg-white py-5 mb-4">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         <div className=" flex items-center space-x-4">
-          <h1 className="text-2xl font-extrabold text-black">{title}</h1>
+          <ScrollLink
+            to="location"
+            smooth={true}
+            offset={-200}
+            duration={500}
+            className="text-2xl font-extrabold text-black cursor-pointer"
+          >
+            {title}
+          </ScrollLink>
 
           <div className="flex items-center">
             <FaStar className="text-black-400 text-xl" />
