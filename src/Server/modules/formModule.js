@@ -1,7 +1,4 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
-const mongoose = require("mongoose");
-import connectdb from "../db";
+import mongoose from "mongoose";
 
 const formSchema = new mongoose.Schema({
   fullName: {
