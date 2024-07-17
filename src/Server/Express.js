@@ -5,10 +5,18 @@ import { PORT, mongoURL } from "./config.js";
 import mongoose from "mongoose";
 import { Form } from "./modules/formModule.js";
 import formRoute from "./routes/formRoute.js";
-
+import cors from "cors";
 const app = express();
 
 app.use(express.json());
+app.use(cors());
+// app.use(
+//   cors({
+//     origin: "http://localhost:8000",
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//     allowedHeaders: ["content-type"],
+//   })
+// );
 app.get("/", (req, res) => {
   res.status(200).send("Everything good!");
 });
