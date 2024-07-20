@@ -6,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import validationForm from "../Component/validationForm";
 import Spinner from "../Component/Spinner";
+import axios from "axios";
 
 const FormPage = () => {
   const [loading, setLoading] = useState(false);
@@ -20,18 +21,26 @@ const FormPage = () => {
     onSubmit: (values) => {
       setLoading(true);
 
-      setTimeout(() => {
-        setLoading(false);
-        toast.success("Successfully Reserved!", {
-          position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-        });
-        formik.resetForm();
-      }, 2000);
+      axios
+        .post("http://localhost:8000/form/submit-form", {
+          fullName: values.fullname,
+          email: values.email,
+          password: values.password,
+        })
+        .then((response) => {
+          console.log("Form submitted successfully", response.data);
+          toast.success("Successfully Reserved!", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
+          formik.resetForm();
+        })
+        .catch((err) => console.log(err.message))
+        .finally(() => setLoading(false));
     },
   });
 

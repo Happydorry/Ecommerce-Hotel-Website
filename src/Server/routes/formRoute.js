@@ -3,7 +3,7 @@ import express from "express";
 
 const router = express.Router();
 
-router.post("/", async (req, res) => {
+router.post("/submit-form", async (req, res) => {
   try {
     if (!req.body.fullName || !req.body.email || !req.body.password) {
       return res.status(500).send("All fields required!");
@@ -16,7 +16,7 @@ router.post("/", async (req, res) => {
     const person = await Form.create(newPerson);
     return res.status(201).send(person);
   } catch (err) {
-    console.log(err);
+    console.log(err.message);
   }
 });
 
@@ -33,7 +33,7 @@ router.put("/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const person = await Form.findByIdAndUpdate(id);
-    res.status(200).send("successfully updated");
+    res.status(200).send("successfully updated", person);
   } catch (err) {
     console.log(err);
     res.status(500).send("Could not update.");
@@ -44,7 +44,7 @@ router.delete("/:id", async (req, res) => {
   const { id } = req.params;
   try {
     const person = await Form.findByIdAndDelete(id);
-    res.status(200).send("Successfully deleted.");
+    res.status(200).send(`${person} Successfully deleted.`);
   } catch (err) {
     console.log(err);
     res.status(400).send(err);
