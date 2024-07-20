@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable no-undef */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
@@ -7,9 +9,11 @@ import "react-toastify/dist/ReactToastify.css";
 import validationForm from "../Component/validationForm";
 import Spinner from "../Component/Spinner";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const FormPage = () => {
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -38,6 +42,9 @@ const FormPage = () => {
             draggable: true,
           });
           formik.resetForm();
+          setTimeout(() => {
+            navigate("/roomspage");
+          }, 3000);
         })
         .catch((err) => console.log(err.message))
         .finally(() => setLoading(false));
