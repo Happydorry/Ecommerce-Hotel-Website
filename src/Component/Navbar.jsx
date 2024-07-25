@@ -5,8 +5,14 @@ import logo from "../assets/Images/logo.png";
 // import { Link as RouterLink } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
+import { useState } from "react";
 
 const Navbar = ({ scrollToRooms }) => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
   return (
     <nav className="bg-gray-400 border-b border-indigo-500">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -55,6 +61,28 @@ const Navbar = ({ scrollToRooms }) => {
                 >
                   FAQ
                 </ScrollLink>
+                <NavLink
+                  to=""
+                  onClick={toggleDropdown}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                      : "text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                  }
+                >
+                  Account
+                </NavLink>
+                {dropdownOpen && (
+                  <div className="origin-top-right absolute right-0 mt-10 w-40 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-4">
+                    <NavLink
+                      to=""
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      onClick={() => setDropdownOpen(false)}
+                    >
+                      Logout
+                    </NavLink>
+                  </div>
+                )}
               </div>
             </div>
           </div>

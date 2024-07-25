@@ -10,6 +10,7 @@ import Card from "./Card";
 import { FaTags, FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import accountpage from "../Pages/AccountPage";
 
 const RoomListing = () => {
   const images = [queen, bath1]; // Add all images here
@@ -22,7 +23,7 @@ const RoomListing = () => {
 
   const navigate = useNavigate();
   const handleExploreClick = () => {
-    navigate("/FormPage");
+    navigate("/accountpage");
   };
 
   const nextImage = () => {

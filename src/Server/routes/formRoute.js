@@ -1,5 +1,6 @@
 import { Form } from "../modules/formModule.js";
 import express from "express";
+import bcrypt from "bcrypt";
 
 const router = express.Router();
 
@@ -13,6 +14,10 @@ router.post("/submit-form", async (req, res) => {
       email: req.body.email,
       password: req.body.password,
     };
+
+    //hash the pass
+    const hashPass = await bcrypt.hash(req.body.password, 10);
+    newPerson.password = hashPass;
     const person = await Form.create(newPerson);
     return res.status(201).send(person);
   } catch (err) {

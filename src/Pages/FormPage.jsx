@@ -10,11 +10,11 @@ import validationForm from "../Component/validationForm";
 import Spinner from "../Component/Spinner";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import RoomListing from "../Component/RoomListing";
+//import RoomListing from "../Component/RoomListing";
 
-const [numQueen, setNumQueen] = useState(3);
-const [numKing, setNumKing] = useState(10);
-const [numSuit, setNumSuit] = useState(5);
+// const [numQueen, setNumQueen] = useState(3);
+// const [numKing, setNumKing] = useState(10);
+// const [numSuit, setNumSuit] = useState(5);
 
 const FormPage = () => {
   const [loading, setLoading] = useState(false);
