@@ -6,32 +6,30 @@ const accountPage = () => {
   return (
     <>
       <div className="flex justify-center items-center min-h-screen bg-gray-200">
-        <div className="flex space-x-8">
-          <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+        <div className="flex space-x-20">
+          <div className="w-64 rounded overflow-hidden shadow-lg bg-blue-200 hover:bg-blue-400">
             <div className="px-8 py-6">
-              <div className="font-bold text-xl mb-2">Log In</div>
-            </div>
-            <div className="px-6 pt-4 pb-2">
-              <NavLink
-                to="/login"
-                className="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-              >
-                Log In
-              </NavLink>
+              <div className="px-6 pt-4 pb-2">
+                <NavLink
+                  to="/login"
+                  className="inline-block ms-5 text-lg  text-black font-bold py-2 px-4 rounded"
+                >
+                  Log In
+                </NavLink>
+              </div>
             </div>
           </div>
 
-          <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+          <div className="w-64 rounded  overflow-hidden shadow-lg bg-blue-200 hover:bg-blue-400">
             <div className="px-6 py-4">
-              <div className="font-bold text-xl mb-2">Create an Account</div>
-            </div>
-            <div className="px-6 pt-4 pb-2">
-              <NavLink
-                to="/signup"
-                className="inline-block bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-              >
-                Create an Account
-              </NavLink>
+              <div className="px-6 pt-4 pb-2">
+                <NavLink
+                  to="/FormPage"
+                  className="inline-block   ms-5 text-lg text-black font-bold py-2 px-4 rounded"
+                >
+                  Create an Account
+                </NavLink>
+              </div>
             </div>
           </div>
         </div>

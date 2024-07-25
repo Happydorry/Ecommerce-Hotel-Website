@@ -1,3 +1,4 @@
+/* eslint-disable no-dupe-keys */
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
@@ -10,7 +11,11 @@ export default {
           400: "#FB923C",
           800: "#9A3412",
         },
-        blue: "#dbeafe",
+
+        blue: {
+          100: "#dbeafe",
+          400: "#60A5FA",
+        },
         beige: {
           500: "#F5F5DC", // Beige color
         },
