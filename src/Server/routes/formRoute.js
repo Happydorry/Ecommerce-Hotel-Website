@@ -10,9 +10,6 @@ dotenv.config();
 
 const router = express.Router();
 
-const secretKey = crypto.randomBytes(32).toString("hex");
-console.log(`Secret Key: ${secretKey}`);
-
 router.post("/submit-form", async (req, res) => {
   try {
     if (!req.body.fullName || !req.body.email || !req.body.password) {
@@ -28,13 +25,16 @@ router.post("/submit-form", async (req, res) => {
     const hashPass = await bcrypt.hash(req.body.password, 10);
     newPerson.password = hashPass;
     const person = await Form.create(newPerson);
-    return res.status(201).send(person);
-  } catch (err) {
-    console.log(err.message);
-  }
-  // create token
-  try {
+
+    // create token
+
     const secretKey = process.env.SECRET_KEY;
+    const user = {
+      id: person.id,
+      email: req.body.email,
+    };
+    const token = jwt.sign(user, secretKey, { expiresIn: "1h" });
+    res.status(201).send({ person, token });
   } catch (err) {
     console.log(err.message);
   }
