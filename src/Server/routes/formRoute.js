@@ -1,8 +1,17 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 import { Form } from "../modules/formModule.js";
 import express from "express";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import crypto from "crypto";
+import dotenv from "dotenv";
+dotenv.config();
 
 const router = express.Router();
+
+const secretKey = crypto.randomBytes(32).toString("hex");
+console.log(`Secret Key: ${secretKey}`);
 
 router.post("/submit-form", async (req, res) => {
   try {
@@ -20,6 +29,12 @@ router.post("/submit-form", async (req, res) => {
     newPerson.password = hashPass;
     const person = await Form.create(newPerson);
     return res.status(201).send(person);
+  } catch (err) {
+    console.log(err.message);
+  }
+  // create token
+  try {
+    const secretKey = process.env.SECRET_KEY;
   } catch (err) {
     console.log(err.message);
   }
