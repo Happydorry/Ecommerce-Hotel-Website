@@ -2,6 +2,8 @@
 import React from "react";
 //import Card from "../Component/Card";
 import { NavLink } from "react-router-dom";
+import LoginPage from "./LoginPage";
+
 const accountPage = () => {
   return (
     <>
@@ -11,7 +13,7 @@ const accountPage = () => {
             <div className="px-8 py-6">
               <div className="px-6 pt-4 pb-2">
                 <NavLink
-                  to="/login"
+                  to="/LoginPage"
                   className="inline-block ms-5 text-lg  text-black font-bold py-2 px-4 rounded"
                 >
                   Log In
