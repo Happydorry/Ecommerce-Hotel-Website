@@ -40,6 +40,43 @@ router.post("/submit-form", async (req, res) => {
   }
 });
 
+router.post("/login", async (req, res) => {
+  try {
+    if (!req.body.email || !req.body.password) {
+      return res.status(500).send("All fields required!");
+    }
+
+    //use Mongo to find the person
+    const person = await Form.findOne({ email: req.body.email });
+
+    //compare the passwords
+    if (!person) {
+      return res.status(404).send("User not found!");
+    }
+    const isPasswordValid = await bcrypt.compare(
+      req.body.password,
+      person.password
+    );
+
+    if (!isPasswordValid) {
+      return res.status(401).send("Invalid credentials!");
+    }
+
+    // create token
+
+    const secretKey = process.env.SECRET_KEY;
+    const user = {
+      id: person.id,
+      email: req.body.email,
+    };
+    const token = await jwt.sign(user, secretKey, { expiresIn: "1h" });
+    res.status(201).send({ person, token });
+  } catch (err) {
+    console.log(err.message);
+    res.status(404).send("User not found!");
+  }
+});
+
 router.get("/", async (req, res) => {
   try {
     const people = await Form.find({});

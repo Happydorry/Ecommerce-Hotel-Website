@@ -21,17 +21,20 @@ const LoginPage = () => {
       email: "",
       password: "",
     },
-    validationSchema: validationForm,
+    // validationSchema: validationForm,
     onSubmit: (values) => {
+      console.log("Form submitted with values:", values);
       setLoading(true);
-      // bcrypt
+
       axios
-        .post("http://localhost:8000/form/submit-form", {
+        .post("http://localhost:8000/form/login", {
           email: values.email,
           password: values.password,
         })
         .then((response) => {
           console.log("Logged in successfully", response.data);
+          const { token } = response.data;
+          localStorage.setItem("token", token);
           toast.success("Successfully Reserved!", {
             position: "top-right",
             autoClose: 3000,
@@ -45,7 +48,17 @@ const LoginPage = () => {
             navigate("/roomspage");
           }, 3000);
         })
-        .catch((err) => console.log(err.message))
+        .catch((err) => {
+          console.error("Error: ", err.message); // Log the error
+          toast.error("Login failed!", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
+        })
         .finally(() => setLoading(false));
     },
   });
