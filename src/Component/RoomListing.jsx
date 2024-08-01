@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import React from "react";
 import queen from "../assets/Images/queen.png";
@@ -15,15 +16,24 @@ const RoomListing = () => {
   const images = [queen, bath1]; // Add all images here
   const images1 = [king, bath2];
   const images2 = [suit, bath3];
-
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentIndex1, setCurrentIndex1] = useState(0);
   const [currentIndex2, setCurrentIndex2] = useState(0);
-
+  const [isReserving, setIsReserving] = useState(false);
   const navigate = useNavigate();
+
   const handleExploreClick = () => {
-    navigate("/accountPage");
+    const token = localStorage.getItem("token");
+    if (token) {
+      setIsReserving(true);
+    } else {
+      navigate("/accountPage");
+    }
   };
+
+  const [numQueen, setNumQueen] = useState(3);
+  const [numKing, setNumKing] = useState(10);
+  const [numSuit, setNumSuit] = useState(5);
 
   const nextImage = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -55,9 +65,18 @@ const RoomListing = () => {
     );
   };
 
-  const numQueen = 3;
-  const numKing = 10;
-  const numSuit = 5;
+  const reserveRoom = (roomType) => {
+    if (!isReserving) return;
+
+    if (roomType === "queen" && numQueen > 0) {
+      setNumQueen(numQueen - 1);
+    } else if (roomType === "king" && numKing > 0) {
+      setNumKing(numKing - 1);
+    } else if (roomType === "suit" && numSuit > 0) {
+      setNumSuit(numSuit - 1);
+    }
+    setIsReserving(false); // Reset after reserving
+  };
   return (
     <>
       <h1 className="font-extrabold text-3xl text-center my-10  mb-5 p-5">
@@ -117,7 +136,10 @@ const RoomListing = () => {
               <div className="flex items-center justify-between">
                 <p className="mt-1">Partially refundable</p>
                 <button
-                  onClick={handleExploreClick}
+                  onClick={() => {
+                    handleExploreClick();
+                    reserveRoom("queen");
+                  }}
                   className="bg-red-500 hover:bg-red-300 mr-10 btn-lg text-white font-bold py-4 px-10 rounded"
                 >
                   Reserve
@@ -182,7 +204,10 @@ const RoomListing = () => {
               <div className="flex items-center justify-between">
                 <p className="mt-1">Partially refundable</p>
                 <button
-                  onClick={handleExploreClick}
+                  onClick={() => {
+                    handleExploreClick();
+                    reserveRoom("king");
+                  }}
                   className="bg-red-500 hover:bg-red-300 mr-10 btn-lg text-white font-bold py-4 px-10 rounded"
                 >
                   Reserve
@@ -247,7 +272,10 @@ const RoomListing = () => {
               <div className="flex items-center justify-between">
                 <p className="mt-1">Partially refundable</p>
                 <button
-                  onClick={handleExploreClick}
+                  onClick={() => {
+                    handleExploreClick();
+                    reserveRoom("suit");
+                  }}
                   className="bg-red-500 hover:bg-red-300 mr-10 btn-lg text-white font-bold py-4 px-10 rounded"
                 >
                   Reserve

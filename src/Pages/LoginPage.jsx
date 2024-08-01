@@ -43,7 +43,7 @@ const LoginPage = () => {
           console.log("Logged in successfully", response.data);
           const { token } = response.data;
           localStorage.setItem("token", token);
-          toast.success("Successfully Reserved!", {
+          toast.success("Successfully logged in!", {
             position: "top-right",
             autoClose: 3000,
             hideProgressBar: false,
@@ -133,3 +133,17 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+
+// const token = localStorage.getItem("token");
+// axios
+//   .get("http://localhost:8000/protected-route", {
+//     headers: {
+//       Authorization: `Bearer ${token}`,
+//     },
+//   })
+//   .then((response) => {
+//     console.log(response.data);
+//   })
+//   .catch((err) => {
+//     console.error("Error: ", err.message);
+//   });
