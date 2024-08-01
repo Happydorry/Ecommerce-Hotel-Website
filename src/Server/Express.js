@@ -9,7 +9,13 @@ import cors from "cors";
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3000", // Your frontend domain
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+  })
+);
 
 app.get("/", (req, res) => {
   res.status(200).send("Everything good!");

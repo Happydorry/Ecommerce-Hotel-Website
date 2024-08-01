@@ -13,6 +13,10 @@ const Navbar = ({ scrollToRooms }) => {
     setDropdownOpen(!dropdownOpen);
   };
 
+  const handleLogout = () => {
+    // Remove the token from localStorage
+    localStorage.removeItem("token");
+  };
   return (
     <nav className="bg-gray-400 border-b border-indigo-500">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -79,7 +83,7 @@ const Navbar = ({ scrollToRooms }) => {
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       onClick={() => setDropdownOpen(false)}
                     >
-                      Logout
+                      <button onClick={handleLogout}>Logout</button>
                     </NavLink>
                   </div>
                 )}

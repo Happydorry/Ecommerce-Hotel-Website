@@ -27,10 +27,18 @@ const LoginPage = () => {
       setLoading(true);
 
       axios
-        .post("http://localhost:8000/form/login", {
-          email: values.email,
-          password: values.password,
-        })
+        .post(
+          "http://localhost:8000/form/login",
+          {
+            email: values.email,
+            password: values.password,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
         .then((response) => {
           console.log("Logged in successfully", response.data);
           const { token } = response.data;
