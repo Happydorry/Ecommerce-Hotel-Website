@@ -9,8 +9,8 @@ import suit from "../assets/Images/suit.png";
 import bath3 from "../assets/Images/bath3.png";
 import Card from "./Card";
 import { FaTags, FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const RoomListing = () => {
   const images = [queen, bath1]; // Add all images here
@@ -31,9 +31,28 @@ const RoomListing = () => {
     }
   };
 
-  const [numQueen, setNumQueen] = useState(3);
-  const [numKing, setNumKing] = useState(10);
-  const [numSuit, setNumSuit] = useState(5);
+  const getInitialRooms = (key, initial) => {
+    const storedValue = localStorage.getItem(key);
+    return storedValue ? JSON.parse(storedValue) : initial;
+  };
+
+  const [numQueen, setNumQueen] = useState(() =>
+    getInitialRooms("numQueen", 3)
+  );
+  const [numKing, setNumKing] = useState(() => getInitialRooms("numKing", 10));
+  const [numSuit, setNumSuit] = useState(() => getInitialRooms("numSuit", 5));
+
+  useEffect(() => {
+    localStorage.setItem("numQueen", numQueen);
+  }, [numQueen]);
+
+  useEffect(() => {
+    localStorage.setItem("numKing", numKing);
+  }, [numKing]);
+
+  useEffect(() => {
+    localStorage.setItem("numSuit", numSuit);
+  }, [numSuit]);
 
   const nextImage = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -68,12 +87,27 @@ const RoomListing = () => {
   const reserveRoom = (roomType) => {
     if (!isReserving) return;
 
-    if (roomType === "queen" && numQueen > 0) {
-      setNumQueen(numQueen - 1);
-    } else if (roomType === "king" && numKing > 0) {
-      setNumKing(numKing - 1);
-    } else if (roomType === "suit" && numSuit > 0) {
-      setNumSuit(numSuit - 1);
+    if (roomType === "queen") {
+      if (numQueen > 0) {
+        setNumQueen(numQueen - 1);
+        if (numQueen - 1 === 0) {
+          alert("Sorry room not available!");
+        }
+      } else {
+        alert("Sorry room not available!");
+      }
+    } else if (roomType === "king") {
+      if (numKing > 0) {
+        setNumKing(numKing - 1);
+      } else {
+        alert("Sorry room not available!");
+      }
+    } else if (roomType === "suit") {
+      if (numSuit > 0) {
+        setNumSuit(numSuit - 1);
+      } else {
+        alert("Sorry room not available!");
+      }
     }
     setIsReserving(false); // Reset after reserving
   };
