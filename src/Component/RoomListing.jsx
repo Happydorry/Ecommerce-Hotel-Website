@@ -161,7 +161,7 @@ const RoomListing = () => {
                   <div className="flex items-center">
                     <p className="font-extrabold text-2xl mr-40">$300/night</p>
                     <span className="text-red-400 text-sm ml-4 mr-5">
-                      Only ${numQueen} rooms left. Reserve now!
+                      Only ${numQueen} rooms left!
                     </span>
                   </div>
                 </div>
@@ -229,7 +229,7 @@ const RoomListing = () => {
                   <div className="flex items-center">
                     <p className="font-extrabold text-2xl mr-40">$506/night</p>
                     <span className="text-red-400 text-sm ml-4 mr-5">
-                      Only ${numKing} rooms left. Reserve now!
+                      Only ${numKing} rooms left!
                     </span>
                   </div>
                 </div>
@@ -297,7 +297,7 @@ const RoomListing = () => {
                   <div className="flex items-center">
                     <p className="font-extrabold text-2xl mr-40">$700/night</p>
                     <span className="text-red-400 text-sm ml-4 mr-5">
-                      Only ${numSuit} rooms left. Reserve now!
+                      Only ${numSuit} rooms left!
                     </span>
                   </div>
                 </div>
