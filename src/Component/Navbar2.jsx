@@ -55,39 +55,6 @@ const Navbar2 = () => {
                 >
                   Rooms
                 </NavLink>
-
-                <NavLink
-                  to=""
-                  onClick={toggleDropdown}
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 "
-                      : "text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
-                  }
-                >
-                  Account
-                </NavLink>
-
-                {dropdownOpen && (
-                  <div className="origin-top-right absolute right-0 mt-5 w-40 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-4">
-                    {isLoggedIn ? (
-                      <button
-                        onClick={handleLogout}
-                        className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      >
-                        Logout
-                      </button>
-                    ) : (
-                      <NavLink
-                        to="/LoginPage"
-                        onClick={() => setDropdownOpen(false)}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      >
-                        Login
-                      </NavLink>
-                    )}
-                  </div>
-                )}
               </div>
             </div>
           </div>

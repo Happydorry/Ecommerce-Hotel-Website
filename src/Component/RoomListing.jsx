@@ -160,7 +160,7 @@ const RoomListing = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center">
                     <p className="font-extrabold text-2xl mr-40">$300/night</p>
-                    <span className="text-red-400 text-sm ml-4 mr-5">
+                    <span className="text-red-400 text-sm ml-4 mr-10">
                       Only ${numQueen} rooms left!
                     </span>
                   </div>
@@ -169,15 +169,20 @@ const RoomListing = () => {
 
               <div className="flex items-center justify-between">
                 <p className="mt-1">Partially refundable</p>
-                <button
-                  onClick={() => {
-                    handleExploreClick();
-                    reserveRoom("queen");
-                  }}
-                  className="bg-red-500 hover:bg-red-300 mr-10 btn-lg text-white font-bold py-4 px-10 rounded"
-                >
-                  Reserve
-                </button>
+                <div className="flex flex-col">
+                  <button
+                    onClick={() => {
+                      handleExploreClick();
+                      reserveRoom("queen");
+                    }}
+                    className="bg-red-500 hover:bg-red-300 mr-10 btn-lg text-white font-bold py-4 px-10 rounded"
+                  >
+                    Reserve
+                  </button>
+                  <span className="text-black underline hover:text-blue-400 cursor-pointer mt-5">
+                    Make a cancellation
+                  </span>
+                </div>
               </div>
 
               <hr className="my-2 w-1/2 border-gray-300 mt-6 mb-6" />
@@ -228,7 +233,7 @@ const RoomListing = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center">
                     <p className="font-extrabold text-2xl mr-40">$506/night</p>
-                    <span className="text-red-400 text-sm ml-4 mr-5">
+                    <span className="text-red-400 text-sm ml-4 mr-10">
                       Only ${numKing} rooms left!
                     </span>
                   </div>
@@ -237,15 +242,20 @@ const RoomListing = () => {
 
               <div className="flex items-center justify-between">
                 <p className="mt-1">Partially refundable</p>
-                <button
-                  onClick={() => {
-                    handleExploreClick();
-                    reserveRoom("king");
-                  }}
-                  className="bg-red-500 hover:bg-red-300 mr-10 btn-lg text-white font-bold py-4 px-10 rounded"
-                >
-                  Reserve
-                </button>
+                <div className="flex flex-col">
+                  <button
+                    onClick={() => {
+                      handleExploreClick();
+                      reserveRoom("king");
+                    }}
+                    className="bg-red-500 hover:bg-red-300 mr-10 btn-lg text-white font-bold py-4 px-10 rounded"
+                  >
+                    Reserve
+                  </button>
+                  <span className="text-black underline hover:text-blue-400 cursor-pointer mt-5">
+                    Make a cancellation
+                  </span>
+                </div>
               </div>
 
               <hr className="my-2 w-1/2 border-gray-300 mt-6 mb-6" />
@@ -296,7 +306,7 @@ const RoomListing = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center">
                     <p className="font-extrabold text-2xl mr-40">$700/night</p>
-                    <span className="text-red-400 text-sm ml-4 mr-5">
+                    <span className="text-red-400 text-sm ml-4 mr-10">
                       Only ${numSuit} rooms left!
                     </span>
                   </div>
@@ -305,15 +315,20 @@ const RoomListing = () => {
 
               <div className="flex items-center justify-between">
                 <p className="mt-1">Partially refundable</p>
-                <button
-                  onClick={() => {
-                    handleExploreClick();
-                    reserveRoom("suit");
-                  }}
-                  className="bg-red-500 hover:bg-red-300 mr-10 btn-lg text-white font-bold py-4 px-10 rounded"
-                >
-                  Reserve
-                </button>
+                <div className="flex flex-col">
+                  <button
+                    onClick={() => {
+                      handleExploreClick();
+                      reserveRoom("suit");
+                    }}
+                    className="bg-red-500 hover:bg-red-300 mr-10 btn-lg text-white font-bold py-4 px-10 rounded"
+                  >
+                    Reserve
+                  </button>
+                  <span className="text-black underline hover:text-blue-400 cursor-pointer mt-5">
+                    Make a cancellation
+                  </span>
+                </div>
               </div>
 
               <hr className="my-2 w-1/2 border-gray-300 mt-6 mb-6" />
