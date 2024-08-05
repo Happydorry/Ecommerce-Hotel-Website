@@ -30,6 +30,9 @@ const RoomListing = () => {
       navigate("/accountPage");
     }
   };
+  const handleCancellation = () => {
+    alert("Cancellation requested!");
+  };
 
   const getInitialRooms = (key, initial) => {
     const storedValue = localStorage.getItem(key);
@@ -179,7 +182,10 @@ const RoomListing = () => {
                   >
                     Reserve
                   </button>
-                  <span className="text-black underline hover:text-blue-400 cursor-pointer mt-5">
+                  <span
+                    className="text-black underline hover:text-blue-400 cursor-pointer mt-5"
+                    onClick={handleCancellation}
+                  >
                     Make a cancellation
                   </span>
                 </div>
@@ -252,7 +258,10 @@ const RoomListing = () => {
                   >
                     Reserve
                   </button>
-                  <span className="text-black underline hover:text-blue-400 cursor-pointer mt-5">
+                  <span
+                    className="text-black underline hover:text-blue-400 cursor-pointer mt-5"
+                    onClick={handleCancellation}
+                  >
                     Make a cancellation
                   </span>
                 </div>
@@ -325,7 +334,10 @@ const RoomListing = () => {
                   >
                     Reserve
                   </button>
-                  <span className="text-black underline hover:text-blue-400 cursor-pointer mt-5">
+                  <span
+                    className="text-black underline hover:text-blue-400 cursor-pointer mt-5"
+                    onClick={handleCancellation}
+                  >
                     Make a cancellation
                   </span>
                 </div>
