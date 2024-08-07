@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
 import React from "react";
 import queen from "../assets/Images/queen.png";
 import bath1 from "../assets/Images/bath1.png";
@@ -20,6 +18,7 @@ const RoomListing = () => {
   const [currentIndex1, setCurrentIndex1] = useState(0);
   const [currentIndex2, setCurrentIndex2] = useState(0);
   const [isReserving, setIsReserving] = useState(false);
+  const [isCancelling, setIsCancelling] = useState(false);
   const navigate = useNavigate();
 
   const handleExploreClick = () => {
@@ -30,13 +29,19 @@ const RoomListing = () => {
       navigate("/accountPage");
     }
   };
+
   const handleCancellation = () => {
-    alert("Cancellation requested!");
+    const token = localStorage.getItem("token");
+    if (token) {
+      setIsCancelling(true);
+    } else {
+      navigate("/accountPage");
+    }
   };
 
   const getInitialRooms = (key, initial) => {
     const storedValue = localStorage.getItem(key);
-    return storedValue ? JSON.parse(storedValue) : initial;
+    return storedValue ? parseInt(storedValue) : initial;
   };
 
   const [numQueen, setNumQueen] = useState(() =>
@@ -114,6 +119,22 @@ const RoomListing = () => {
     }
     setIsReserving(false); // Reset after reserving
   };
+
+  const cancelRoom = (roomType) => {
+    if (!isCancelling) return;
+
+    if (roomType === "queen") {
+      setNumQueen(numQueen + 1);
+      alert("Cancellation Done!");
+    } else if (roomType === "king") {
+      setNumKing(numKing + 1);
+      alert("Cancellation Done!");
+    } else if (roomType === "suit") {
+      setNumSuit(numSuit + 1);
+      alert("Cancellation Done!");
+    }
+    setIsCancelling(false); // Reset after cancelling
+  };
   return (
     <>
       <h1 className="font-extrabold text-3xl text-center my-10  mb-5 p-5">
@@ -164,7 +185,7 @@ const RoomListing = () => {
                   <div className="flex items-center">
                     <p className="font-extrabold text-2xl mr-40">$300/night</p>
                     <span className="text-red-400 text-sm ml-4 mr-10">
-                      Only ${numQueen} rooms left!
+                      Only {numQueen} rooms left!
                     </span>
                   </div>
                 </div>
@@ -184,7 +205,10 @@ const RoomListing = () => {
                   </button>
                   <span
                     className="text-black underline hover:text-blue-400 cursor-pointer mt-5"
-                    onClick={handleCancellation}
+                    onClick={() => {
+                      handleCancellation();
+                      cancelRoom("king");
+                    }}
                   >
                     Make a cancellation
                   </span>
@@ -240,7 +264,7 @@ const RoomListing = () => {
                   <div className="flex items-center">
                     <p className="font-extrabold text-2xl mr-40">$506/night</p>
                     <span className="text-red-400 text-sm ml-4 mr-10">
-                      Only ${numKing} rooms left!
+                      Only {numKing} rooms left!
                     </span>
                   </div>
                 </div>
@@ -260,7 +284,10 @@ const RoomListing = () => {
                   </button>
                   <span
                     className="text-black underline hover:text-blue-400 cursor-pointer mt-5"
-                    onClick={handleCancellation}
+                    onClick={() => {
+                      handleCancellation();
+                      cancelRoom("queen");
+                    }}
                   >
                     Make a cancellation
                   </span>
@@ -316,7 +343,7 @@ const RoomListing = () => {
                   <div className="flex items-center">
                     <p className="font-extrabold text-2xl mr-40">$700/night</p>
                     <span className="text-red-400 text-sm ml-4 mr-10">
-                      Only ${numSuit} rooms left!
+                      Only {numSuit} rooms left!
                     </span>
                   </div>
                 </div>
@@ -336,7 +363,10 @@ const RoomListing = () => {
                   </button>
                   <span
                     className="text-black underline hover:text-blue-400 cursor-pointer mt-5"
-                    onClick={handleCancellation}
+                    onClick={() => {
+                      handleCancellation();
+                      cancelRoom("suit");
+                    }}
                   >
                     Make a cancellation
                   </span>
