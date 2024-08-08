@@ -35,7 +35,7 @@ const RoomListing = () => {
     if (token) {
       setIsCancelling(true);
     } else {
-      navigate("/accountPage");
+      navigate("/accountPage2");
     }
   };
 
@@ -98,6 +98,7 @@ const RoomListing = () => {
     if (roomType === "queen") {
       if (numQueen > 0) {
         setNumQueen(numQueen - 1);
+        alert("Room reserved!");
         if (numQueen - 1 === 0) {
           alert("Sorry room not available!");
         }
@@ -107,12 +108,14 @@ const RoomListing = () => {
     } else if (roomType === "king") {
       if (numKing > 0) {
         setNumKing(numKing - 1);
+        alert("Room reserved!");
       } else {
         alert("Sorry room not available!");
       }
     } else if (roomType === "suit") {
       if (numSuit > 0) {
         setNumSuit(numSuit - 1);
+        alert("Room reserved!");
       } else {
         alert("Sorry room not available!");
       }
@@ -207,7 +210,7 @@ const RoomListing = () => {
                     className="text-black underline hover:text-blue-400 cursor-pointer mt-5"
                     onClick={() => {
                       handleCancellation();
-                      cancelRoom("king");
+                      cancelRoom("queen");
                     }}
                   >
                     Make a cancellation
@@ -286,7 +289,7 @@ const RoomListing = () => {
                     className="text-black underline hover:text-blue-400 cursor-pointer mt-5"
                     onClick={() => {
                       handleCancellation();
-                      cancelRoom("queen");
+                      cancelRoom("king");
                     }}
                   >
                     Make a cancellation

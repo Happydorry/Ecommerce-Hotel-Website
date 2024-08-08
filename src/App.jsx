@@ -17,6 +17,7 @@ import NotFoundPage from "./Pages/NotFoundPage";
 import FormPage from "./Pages/FormPage";
 import AccountPage from "./Pages/AccountPage";
 import LoginPage from "./Pages/LoginPage";
+import AccountPage2 from "./Pages/AccountPage2";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,6 +29,7 @@ const router = createBrowserRouter(
       <Route path="/" element={<SecondLayout />}>
         <Route path="/roomspage" element={<RoomsPages />} />/
         <Route path="/accountpage" element={<AccountPage />} />/
+        <Route path="/accountpage2" element={<AccountPage2 />} />/
         <Route path="/FormPage" element={<FormPage />} />/
         <Route path="/LoginPage" element={<LoginPage />} />/
       </Route>
