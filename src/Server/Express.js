@@ -11,10 +11,10 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:3000", // Your frontend domain
+    origin: "https://ecommerce-hotel-website.vercel.app",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
-  })
+  }),
 );
 
 app.get("/", (req, res) => {
@@ -28,7 +28,7 @@ mongoose
   .connect(mongoURL)
   .then(() => {
     console.log("App connected to Mongo");
-    app.listen(PORT, () => console.log("App listening on port 8000"));
+    app.listen(PORT, () => console.log("App listening"));
   })
   .catch((err) => {
     console.log(err.message);
