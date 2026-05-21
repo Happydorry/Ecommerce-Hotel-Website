@@ -16,6 +16,8 @@ import { useNavigate } from "react-router-dom";
 // const [numKing, setNumKing] = useState(10);
 // const [numSuit, setNumSuit] = useState(5);
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
 const FormPage = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -31,7 +33,7 @@ const FormPage = () => {
       setLoading(true);
       // bcrypt
       axios
-        .post("http://localhost:8000/form/submit-form", {
+        .post(`${API_URL}/form/submit-form`, {
           fullName: values.fullname,
           email: values.email,
           password: values.password,
